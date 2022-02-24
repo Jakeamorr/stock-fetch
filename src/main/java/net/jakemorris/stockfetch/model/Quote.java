@@ -1,0 +1,343 @@
+package net.jakemorris.stockfetch.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.Formatter;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Quote {
+    String symbol;
+    String companyName;
+    String calculationPrice;
+    Float iexOpen;
+    Float iexClose;
+    Float high;
+    Float low;
+    Float latestPrice;
+    Long latestVolume;
+    Float delayedPrice;
+    Float oddLotDelayedPrice;
+    Float extendedPrice;
+    Float extendedChange;
+    Float extendedChangePercent;
+    Float previousClose;
+    Integer previousVolume;
+    Float change;
+    Float changePercent;
+    Integer iexVolume;
+    String avgTotalVolume;
+    Long marketCap;
+    Float peRatio;
+    Float week52High;
+    Float week52Low;
+    Double ytdChange;
+    Long lastTradeTime;
+    String currency;
+
+    public Quote() {}
+
+    public Quote(String symbol, String companyName, String calculationPrice, Float open, Float close, Float high, Float low, Float latestPrice, Long latestVolume, Float delayedPrice, Float oddLotDelayedPrice, Float extendedPrice, Float extendedChange, Float extendedChangePercent, Float previousClose, Integer previousVolume, Float change, Float changePercent, Integer volume, String avgTotalVolume, Long marketCap, Float peRatio, Float week52High, Float week52Low, Double ytdChange, Long lastTradeTime, String currency) {
+        this.symbol = symbol;
+        this.companyName = companyName;
+        this.calculationPrice = calculationPrice;
+        this.iexOpen = open;
+        this.iexClose = close;
+        this.high = high;
+        this.low = low;
+        this.latestPrice = latestPrice;
+        this.latestVolume = latestVolume;
+        this.delayedPrice = delayedPrice;
+        this.oddLotDelayedPrice = oddLotDelayedPrice;
+        this.extendedPrice = extendedPrice;
+        this.extendedChange = extendedChange;
+        this.extendedChangePercent = extendedChangePercent;
+        this.previousClose = previousClose;
+        this.previousVolume = previousVolume;
+        this.change = change;
+        this.changePercent = changePercent;
+        this.iexVolume = volume;
+        this.avgTotalVolume = avgTotalVolume;
+        this.marketCap = marketCap;
+        this.peRatio = peRatio;
+        this.week52High = week52High;
+        this.week52Low = week52Low;
+        this.ytdChange = ytdChange;
+        this.lastTradeTime = lastTradeTime;
+        this.currency = currency;
+    }
+
+    @Override
+    public String toString() {
+        Formatter f = new Formatter();
+        f.format("| %-28s| %-41s|\n", "symbol", symbol);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "companyName", companyName);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "calculationPrice", calculationPrice);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "open", iexOpen);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "close", iexClose);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "high", high);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "low", low);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "latestVolume", latestVolume);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "delayedPrice", delayedPrice);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "oddLotDelayedPrice", oddLotDelayedPrice);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "extendedPrice", extendedPrice);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "extendedChange", extendedChange);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "extendedChangePercent", extendedChangePercent);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "previousClose", previousClose);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "previousVolume", previousVolume);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "change", change);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "changePercent", changePercent);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "volume", iexVolume);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "avgTotalVolume", avgTotalVolume);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "marketCap", marketCap);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "peRatio", peRatio);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "week52High", week52High);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "week52Low", week52Low);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "ytdChange", ytdChange);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "lastTradeTime", lastTradeTime);
+        f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
+        f.format("| %-28s| %-41s|\n", "currency", currency).toString();
+        return " ------------------------------------------------------------------------ \n" +
+               f +
+               " ------------------------------------------------------------------------ ";
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCalculationPrice() {
+        return calculationPrice;
+    }
+
+    public void setCalculationPrice(String calculationPrice) {
+        this.calculationPrice = calculationPrice;
+    }
+
+    public Float getIexOpen() {
+        return iexOpen;
+    }
+
+    public void setIexOpen(Float iexOpen) {
+        this.iexOpen = iexOpen;
+    }
+
+    public Float getIexClose() {
+        return iexClose;
+    }
+
+    public void setIexClose(Float iexClose) {
+        this.iexClose = iexClose;
+    }
+
+    public Float getHigh() {
+        return high;
+    }
+
+    public void setHigh(Float high) {
+        this.high = high;
+    }
+
+    public Float getLow() {
+        return low;
+    }
+
+    public void setLow(Float low) {
+        this.low = low;
+    }
+
+    public Float getLatestPrice() {
+        return latestPrice;
+    }
+
+    public void setLatestPrice(Float latestPrice) {
+        this.latestPrice = latestPrice;
+    }
+
+    public Long getLatestVolume() {
+        return latestVolume;
+    }
+
+    public void setLatestVolume(Long latestVolume) {
+        this.latestVolume = latestVolume;
+    }
+
+    public Float getDelayedPrice() {
+        return delayedPrice;
+    }
+
+    public void setDelayedPrice(Float delayedPrice) {
+        this.delayedPrice = delayedPrice;
+    }
+
+    public Float getOddLotDelayedPrice() {
+        return oddLotDelayedPrice;
+    }
+
+    public void setOddLotDelayedPrice(Float oddLotDelayedPrice) {
+        this.oddLotDelayedPrice = oddLotDelayedPrice;
+    }
+
+    public Float getExtendedPrice() {
+        return extendedPrice;
+    }
+
+    public void setExtendedPrice(Float extendedPrice) {
+        this.extendedPrice = extendedPrice;
+    }
+
+    public Float getExtendedChange() {
+        return extendedChange;
+    }
+
+    public void setExtendedChange(Float extendedChange) {
+        this.extendedChange = extendedChange;
+    }
+
+    public Float getExtendedChangePercent() {
+        return extendedChangePercent;
+    }
+
+    public void setExtendedChangePercent(Float extendedChangePercent) {
+        this.extendedChangePercent = extendedChangePercent;
+    }
+
+    public Float getPreviousClose() {
+        return previousClose;
+    }
+
+    public void setPreviousClose(Float previousClose) {
+        this.previousClose = previousClose;
+    }
+
+    public Integer getPreviousVolume() {
+        return previousVolume;
+    }
+
+    public void setPreviousVolume(Integer previousVolume) {
+        this.previousVolume = previousVolume;
+    }
+
+    public Float getChange() {
+        return change;
+    }
+
+    public void setChange(Float change) {
+        this.change = change;
+    }
+
+    public Float getChangePercent() {
+        return changePercent;
+    }
+
+    public void setChangePercent(Float changePercent) {
+        this.changePercent = changePercent;
+    }
+
+    public Integer getIexVolume() {
+        return iexVolume;
+    }
+
+    public void setIexVolume(Integer iexVolume) {
+        this.iexVolume = iexVolume;
+    }
+
+    public String getAvgTotalVolume() {
+        return avgTotalVolume;
+    }
+
+    public void setAvgTotalVolume(String avgTotalVolume) {
+        this.avgTotalVolume = avgTotalVolume;
+    }
+
+    public Long getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap(Long marketCap) {
+        this.marketCap = marketCap;
+    }
+
+    public Float getPeRatio() {
+        return peRatio;
+    }
+
+    public void setPeRatio(Float peRatio) {
+        this.peRatio = peRatio;
+    }
+
+    public Float getWeek52High() {
+        return week52High;
+    }
+
+    public void setWeek52High(Float week52High) {
+        this.week52High = week52High;
+    }
+
+    public Float getWeek52Low() {
+        return week52Low;
+    }
+
+    public void setWeek52Low(Float week52Low) {
+        this.week52Low = week52Low;
+    }
+
+    public Double getYtdChange() {
+        return ytdChange;
+    }
+
+    public void setYtdChange(Double ytdChange) {
+        this.ytdChange = ytdChange;
+    }
+
+    public Long getLastTradeTime() {
+        return lastTradeTime;
+    }
+
+    public void setLastTradeTime(Long lastTradeTime) {
+        this.lastTradeTime = lastTradeTime;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+}
