@@ -53,6 +53,7 @@ public class Main {
             displayMenu();
             System.out.print(">> ");
             String option = scan.next();
+            scan.nextLine();
 
             switch(option) {
                 case "1":
@@ -62,7 +63,8 @@ public class Main {
                         System.out.println();
                         System.out.println("Enter a symbol, or type MENU to see other options");
                         System.out.print(">> ");
-                        String symbol = scan.next().toUpperCase(Locale.ROOT);
+                        // If multiple symbols are entered, grab the first one and ignore the others
+                        String symbol = scan.nextLine().split(" ")[0].toUpperCase(Locale.ROOT);
                         if (symbol.equals("MENU")) break;
                         try {
                             Quote q = api.getQuote(symbol);
@@ -71,7 +73,7 @@ public class Main {
                             // Loop to check whether to add quote to saved quotes list
                             while(addingQuote) {
                                 System.out.print("Would you like to save this quote? (y/n) ");
-                                String add = scan.next().toUpperCase(Locale.ROOT);
+                                String add = scan.nextLine().split(" ")[0].toUpperCase(Locale.ROOT);
                                 if (add.equals("Y")) {
                                     QuoteDao quoteDao = new QuoteDao();
                                     quoteDao.addQuote(q);

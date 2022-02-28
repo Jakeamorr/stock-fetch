@@ -2,39 +2,102 @@ package net.jakemorris.stockfetch.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Formatter;
+
+@Entity
+@Table(name = "quote")
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Quote {
+    @Column(name = "symbol")
     String symbol;
+
+    @Column(name = "companyName")
     String companyName;
+
+    @Column(name = "calculationPrice")
     String calculationPrice;
+
+    @Column(name = "open")
     Float iexOpen;
+
+    // TODO: try both, see what kinda of exception is thrown...
+    // @Column(name="iexClose")
+    @Column(name = "close")
     Float iexClose;
+
+    @Column(name = "high")
     Float high;
+
+    @Column(name = "low")
     Float low;
+
+    @Column(name = "latestPrice")
     Float latestPrice;
+
+    @Column(name = "latestVolume")
     Long latestVolume;
+
+    @Column(name = "delayedPrice")
     Float delayedPrice;
+
+    @Column(name = "oddLotDelayedPrice")
     Float oddLotDelayedPrice;
+
+    @Column(name = "extendedPrice")
     Float extendedPrice;
+
+    @Column(name = "extendedChange")
     Float extendedChange;
+
+    @Column(name = "extendedChangePercent")
     Float extendedChangePercent;
+
+    @Column(name = "previousClose")
     Float previousClose;
+
+    @Column(name = "previousVolume")
     Integer previousVolume;
+
+    @Column(name = "change")
     Float change;
+
+    @Column(name = "changePercent")
     Float changePercent;
+
+    @Column(name = "volume")
     Integer iexVolume;
+
+    @Column(name = "avgTotalVolume")
     String avgTotalVolume;
+
+    @Column(name = "marketCap")
     Long marketCap;
+
+    @Column(name = "peRatio")
     Float peRatio;
+
+    @Column(name = "week52High")
     Float week52High;
+
+    @Column(name = "week52Low")
     Float week52Low;
+
+    @Column(name = "ytdChange")
     Double ytdChange;
+
+    @Column(name = "lastTradeTime")
     Long lastTradeTime;
+
+    @Column(name = "currency")
     String currency;
 
-    public Quote() {}
+    public Quote() {
+    }
 
     public Quote(String symbol, String companyName, String calculationPrice, Float open, Float close, Float high, Float low, Float latestPrice, Long latestVolume, Float delayedPrice, Float oddLotDelayedPrice, Float extendedPrice, Float extendedChange, Float extendedChangePercent, Float previousClose, Integer previousVolume, Float change, Float changePercent, Integer volume, String avgTotalVolume, Long marketCap, Float peRatio, Float week52High, Float week52Low, Double ytdChange, Long lastTradeTime, String currency) {
         this.symbol = symbol;
@@ -121,8 +184,8 @@ public class Quote {
         f.format("|%-28s|%-42s|\n", "-----------------------------", "------------------------------------------");
         f.format("| %-28s| %-41s|\n", "currency", currency).toString();
         return " ------------------------------------------------------------------------ \n" +
-               f +
-               " ------------------------------------------------------------------------ ";
+                f +
+                " ------------------------------------------------------------------------ ";
     }
 
     public String getSymbol() {
