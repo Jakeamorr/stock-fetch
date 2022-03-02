@@ -1,3 +1,4 @@
+**/target
 *.properties
 *.idea
-**/target
+*.cfg.xml

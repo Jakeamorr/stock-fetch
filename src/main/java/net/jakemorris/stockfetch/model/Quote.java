@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Formatter;
 
 @Entity
 @Table(name = "quote")
-
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Quote {
+    @Id
     @Column(name = "symbol")
     String symbol;
 
@@ -22,12 +22,10 @@ public class Quote {
     @Column(name = "calculationPrice")
     String calculationPrice;
 
-    @Column(name = "open")
+    @Column(name = "iexOpen")
     Float iexOpen;
 
-    // TODO: try both, see what kinda of exception is thrown...
-    // @Column(name="iexClose")
-    @Column(name = "close")
+    @Column(name="iexClose")
     Float iexClose;
 
     @Column(name = "high")

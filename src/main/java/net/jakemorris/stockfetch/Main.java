@@ -1,6 +1,5 @@
 package net.jakemorris.stockfetch;
 
-import net.jakemorris.collections.List;
 import net.jakemorris.stockfetch.dao.QuoteDao;
 import net.jakemorris.stockfetch.dao.SymbolDao;
 import net.jakemorris.stockfetch.model.Quote;
@@ -8,6 +7,7 @@ import net.jakemorris.stockfetch.model.Symbol;
 import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 

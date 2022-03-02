@@ -2,7 +2,6 @@ package net.jakemorris.stockfetch;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.jakemorris.collections.List;
 import net.jakemorris.stockfetch.dao.SymbolDao;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
@@ -17,6 +16,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 public class Api {
