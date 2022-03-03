@@ -94,39 +94,6 @@ public class Quote {
     @Column(name = "currency")
     String currency;
 
-    public Quote() {
-    }
-
-    public Quote(String symbol, String companyName, String calculationPrice, Float open, Float close, Float high, Float low, Float latestPrice, Long latestVolume, Float delayedPrice, Float oddLotDelayedPrice, Float extendedPrice, Float extendedChange, Float extendedChangePercent, Float previousClose, Integer previousVolume, Float change, Float changePercent, Integer volume, String avgTotalVolume, Long marketCap, Float peRatio, Float week52High, Float week52Low, Double ytdChange, Long lastTradeTime, String currency) {
-        this.symbol = symbol;
-        this.companyName = companyName;
-        this.calculationPrice = calculationPrice;
-        this.iexOpen = open;
-        this.iexClose = close;
-        this.high = high;
-        this.low = low;
-        this.latestPrice = latestPrice;
-        this.latestVolume = latestVolume;
-        this.delayedPrice = delayedPrice;
-        this.oddLotDelayedPrice = oddLotDelayedPrice;
-        this.extendedPrice = extendedPrice;
-        this.extendedChange = extendedChange;
-        this.extendedChangePercent = extendedChangePercent;
-        this.previousClose = previousClose;
-        this.previousVolume = previousVolume;
-        this.change = change;
-        this.changePercent = changePercent;
-        this.iexVolume = volume;
-        this.avgTotalVolume = avgTotalVolume;
-        this.marketCap = marketCap;
-        this.peRatio = peRatio;
-        this.week52High = week52High;
-        this.week52Low = week52Low;
-        this.ytdChange = ytdChange;
-        this.lastTradeTime = lastTradeTime;
-        this.currency = currency;
-    }
-
     @Override
     public String toString() {
         Formatter f = new Formatter();
