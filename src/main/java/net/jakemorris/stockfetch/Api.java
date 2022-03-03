@@ -3,8 +3,11 @@ package net.jakemorris.stockfetch;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.jakemorris.stockfetch.dao.SymbolDao;
+import net.jakemorris.stockfetch.exceptions.APIConnectionException;
+import net.jakemorris.stockfetch.exceptions.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
+import net.jakemorris.stockfetch.model.Token;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
@@ -69,7 +72,7 @@ public class Api {
         // String apiEndpoint = this.liveApiUrl + pathParams + this.prodApiTokenString;
 
         SymbolDao symbolDao = new SymbolDao();
-        boolean validSymbol = symbolDao.findSymbol(symbol);
+        boolean validSymbol = symbolDao.getSymbol(symbol);
 
         if (!validSymbol) {
             throw new InvalidQuoteException("The ticker symbol provided does not match any known stock");

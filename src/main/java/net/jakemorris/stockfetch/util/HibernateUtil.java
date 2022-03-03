@@ -1,6 +1,7 @@
 package net.jakemorris.stockfetch.util;
 
 import net.jakemorris.stockfetch.model.Quote;
+import net.jakemorris.stockfetch.model.Symbol;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -16,6 +17,7 @@ public class HibernateUtil {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure().build();
             MetadataSources sources = new MetadataSources(standardRegistry);
             sources.addAnnotatedClass(Quote.class);
+            sources.addAnnotatedClass(Symbol.class);
             Metadata metadata = sources.buildMetadata();
 
             sf = metadata.buildSessionFactory();

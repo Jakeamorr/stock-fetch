@@ -1,43 +1,26 @@
 package net.jakemorris.stockfetch.dao;
 
 import net.jakemorris.stockfetch.model.Symbol;
-import net.jakemorris.stockfetch.util.ConnectionUtil;
+import net.jakemorris.stockfetch.util.HibernateUtil;
+import org.hibernate.Session;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public class SymbolDao {
-    private Connection conn;
 
-    public SymbolDao() {
-        this.conn = ConnectionUtil.getConnection();
+    public void addSymbols(List<Symbol> list) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        // TODO: need to double check this
+        session.persist(list);
+        session.close();
     }
 
-    public void addSymbols(List<Symbol> list) throws SQLException {
-        for (Symbol symbol : list) {
-            PreparedStatement statement = this.conn.prepareStatement("INSERT INTO symbol VALUES (?, ?)");
-            int parameterIndex = 0;
-            statement.setString(++parameterIndex, symbol.getSymbol());
-            statement.setString(++parameterIndex, symbol.getName());
-            statement.executeUpdate();
-        }
-    }
-
-    public boolean findSymbol(String symbol) throws SQLException {
-        boolean validSymbol;
-        PreparedStatement statement = conn.prepareStatement("Select * From symbol Where symbol = ?");
-        statement.setString(1, symbol);
-
-        ResultSet rs = statement.executeQuery();
-        if(rs.next()) {
-            validSymbol = true;
-        } else {
-            validSymbol = false;
-        }
-        rs.close();
-        return validSymbol;
+    public boolean getSymbol(String symbol) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        Symbol s = session.createQuery("FROM Symbol WHERE symbol = :symbol", Symbol.class).setParameter("symbol", symbol).uniqueResult();
+        session.close();
+        return s != null;
     }
 }

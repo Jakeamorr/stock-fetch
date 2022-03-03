@@ -1,7 +1,6 @@
 package net.jakemorris.stockfetch.dao;
 
 import net.jakemorris.stockfetch.model.Quote;
-import net.jakemorris.stockfetch.util.ConnectionUtil;
 import net.jakemorris.stockfetch.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,11 +9,6 @@ import java.sql.*;
 import java.util.List;
 
 public class QuoteDao {
-    private final Connection conn;
-
-    public QuoteDao() {
-        this.conn = ConnectionUtil.getConnection();
-    }
 
     public Quote getQuote(String symbol) throws SQLException {
         Session session = HibernateUtil.getSession();

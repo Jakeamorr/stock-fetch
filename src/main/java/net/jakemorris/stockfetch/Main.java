@@ -2,6 +2,8 @@ package net.jakemorris.stockfetch;
 
 import net.jakemorris.stockfetch.dao.QuoteDao;
 import net.jakemorris.stockfetch.dao.SymbolDao;
+import net.jakemorris.stockfetch.exceptions.APIConnectionException;
+import net.jakemorris.stockfetch.exceptions.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
 import org.apache.log4j.Logger;

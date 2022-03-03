@@ -7,8 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -38,7 +36,7 @@ class SymbolDaoTest {
         Symbol testSymbol = new Symbol("TSLA", "Tesla");
         SymbolDao mockDao = Mockito.mock(SymbolDao.class);
 
-        assertTrue(mockDao.findSymbol("TSLA"));
+        assertTrue(mockDao.getSymbol("TSLA"));
 
         // Mockito.when(mockDao.findSymbol("TSLA")).thenReturn(true);
         // assertEquals(mockDao.findSymbol(testSymbol.getSymbol()), true);

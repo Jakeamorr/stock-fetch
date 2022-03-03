@@ -1,4 +1,4 @@
-package net.jakemorris.stockfetch;
+package net.jakemorris.stockfetch.model;
 
 public enum Token {
     DEV,
