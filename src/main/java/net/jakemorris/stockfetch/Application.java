@@ -7,19 +7,23 @@ import net.jakemorris.stockfetch.exception.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
 import org.apache.log4j.Logger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
-    public static final Logger log = Logger.getLogger(Main.class);
+@SpringBootApplication
+public class Application {
+    public static final Logger log = Logger.getLogger(Application.class);
 
     public static void main(String[] args) {
-        Api api = new Api();
-        printWelcomeMessage();
-        startUserInteractionLoop(api);
+        SpringApplication.run(Application.class, args);
+        // Api api = new Api();
+        // printWelcomeMessage();
+        // startUserInteractionLoop(api);
     }
 
     public static void printWelcomeMessage() {
