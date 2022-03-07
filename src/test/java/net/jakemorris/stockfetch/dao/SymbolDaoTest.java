@@ -1,7 +1,5 @@
 package net.jakemorris.stockfetch.dao;
 
-import net.jakemorris.collections.ArrayList;
-import net.jakemorris.collections.List;
 import net.jakemorris.stockfetch.model.Symbol;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -9,6 +7,8 @@ import org.mockito.Mockito;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
