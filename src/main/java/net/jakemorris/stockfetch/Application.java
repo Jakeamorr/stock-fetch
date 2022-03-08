@@ -6,6 +6,7 @@ import net.jakemorris.stockfetch.exception.APIConnectionException;
 import net.jakemorris.stockfetch.exception.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
+import net.jakemorris.stockfetch.service.QuoteService;
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +19,7 @@ import java.util.Scanner;
 @SpringBootApplication
 public class Application {
     public static final Logger log = Logger.getLogger(Application.class);
+    private static QuoteService quoteService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -118,7 +120,9 @@ public class Application {
                             try {
                                 int index = Integer.parseInt(indexStr);
                                 if (index >= 0 && index <= i && i > 0) {
-                                    Quote selectedQuote = quoteDao.getQuote(quotes.get(index - 1).getSymbol());
+                                    String symbolToLookup = quotes.get(index - 1).getSymbol();
+                                    Quote selectedQuote = quoteService.getQuote(symbolToLookup);
+                                    // Quote selectedQuote = quoteDao.getQuote(quotes.get(index - 1).getSymbol());
                                     System.out.println(selectedQuote);
                                 }
                             } catch(NumberFormatException e) {

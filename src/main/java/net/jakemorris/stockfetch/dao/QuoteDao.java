@@ -4,10 +4,13 @@ import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.List;
 
+@Repository
 public class QuoteDao {
 
     public Quote getQuote(String symbol) throws SQLException {
