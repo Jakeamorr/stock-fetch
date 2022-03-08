@@ -10,6 +10,7 @@ import net.jakemorris.stockfetch.service.QuoteService;
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -22,10 +23,18 @@ public class Application {
     private static QuoteService quoteService;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        ApplicationContext apc = SpringApplication.run(Application.class, args);
+        getBeanNames(apc);
         // Api api = new Api();
         // printWelcomeMessage();
         // startUserInteractionLoop(api);
+    }
+
+    public static void getBeanNames(ApplicationContext apc) {
+        String[] names = apc.getBeanDefinitionNames();
+        for (String name : names) {
+            System.out.println(name);
+        }
     }
 
     public static void printWelcomeMessage() {

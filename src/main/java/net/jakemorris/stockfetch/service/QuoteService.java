@@ -1,23 +1,37 @@
 package net.jakemorris.stockfetch.service;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import net.jakemorris.stockfetch.dao.QuoteDao;
 import net.jakemorris.stockfetch.model.Quote;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
-@Component
-@NoArgsConstructor
+@Service
+@RequiredArgsConstructor
 public class QuoteService {
-    private QuoteDao quoteDao;
+    private final QuoteDao quoteDao;
 
-    @Autowired
-    public QuoteService(QuoteDao quoteDao) { this.quoteDao = quoteDao;}
-
-    public Quote getQuote(String symbol) throws SQLException {
+    public Quote getQuote(String symbol) {
         return quoteDao.getQuote(symbol);
+    }
+
+    public List<Quote> getQuotes() throws SQLException {
+        return quoteDao.getQuotes();
+    }
+
+    public void addQuote(Quote q) throws SQLException {
+        // If a quote already exists in our list, remove it and add the most up-to-date information
+        Quote existingQuote = getQuote(q.getSymbol());
+        if (existingQuote != null) {
+            removeQuote(q.getSymbol());
+        }
+
+        quoteDao.addQuote(q);
+    }
+
+    public void removeQuote(String symbol) throws SQLException {
+        quoteDao.removeQuote(symbol);
     }
 }

@@ -4,7 +4,6 @@ import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -13,7 +12,7 @@ import java.util.List;
 @Repository
 public class QuoteDao {
 
-    public Quote getQuote(String symbol) throws SQLException {
+    public Quote getQuote(String symbol) {
         Session session = HibernateUtil.getSession();
         Quote q = session.createQuery("FROM Quote WHERE symbol = :symbol", Quote.class).setParameter("symbol", symbol).uniqueResult();
         session.close();
@@ -38,12 +37,6 @@ public class QuoteDao {
 
 
     public void addQuote(Quote q) throws SQLException {
-        // TODO: move to service layer
-        Quote existingQuote = getQuote(q.getSymbol());
-        if (existingQuote != null) {
-            removeQuote(q.getSymbol());
-        }
-
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
         session.persist(q);
