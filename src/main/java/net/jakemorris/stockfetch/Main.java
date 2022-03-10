@@ -6,7 +6,6 @@ import net.jakemorris.stockfetch.exceptions.APIConnectionException;
 import net.jakemorris.stockfetch.exceptions.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
-import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,7 +13,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-    public static final Logger log = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         Api api = new Api();
@@ -88,7 +86,6 @@ public class Main {
                         } catch (InvalidQuoteException | SQLException | APIConnectionException e) {
                             System.out.println();
                             System.out.println("Warning: " + e.getMessage());
-                            log.error(e);
                         }
                     }
                     break;
@@ -119,14 +116,12 @@ public class Main {
                                 }
                             } catch(NumberFormatException e) {
                                 System.out.println("Not a valid index.");
-                                log.error(e);
                             }
                         }
 
 
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        log.error(e);
                     }
                     break;
                 case "3":
@@ -160,7 +155,6 @@ public class Main {
 
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        log.error(e);
                     }
                     break;
 
