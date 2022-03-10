@@ -81,7 +81,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>net.jakemorris.stockfetch.Main</mainClass>
+                            <mainClass>net.jakemorris.stockfetch.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

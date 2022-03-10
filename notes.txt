@@ -1,0 +1,23 @@
+list -> Stock
+1 -> Many
+
+list types:
+    most active
+    grainers
+    losers
+    iexvolume
+    iexpercentage
+--------------------------
+select exchange, count(*) from quote order by exchange
+    basically check to see how many of the current stocks we are holding are from a given exchange
+
+
+Major Relationships:
+    ONE TO ONE
+        Symbol / Quote
+
+    ONE TO MANY
+        Exchange / Stock
+
+    MANY TO MANY
+

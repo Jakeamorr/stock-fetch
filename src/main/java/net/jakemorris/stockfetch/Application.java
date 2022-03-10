@@ -22,8 +22,9 @@ public class Application {
     private static QuoteService quoteService;
 
     public static void main(String[] args) {
-        ApplicationContext apc = SpringApplication.run(Application.class, args);
-        getBeanNames(apc);
+        SpringApplication.run(Application.class, args);
+        // ApplicationContext apc = SpringApplication.run(Application.class, args);
+        // getBeanNames(apc);
         // Api api = new Api();
         // printWelcomeMessage();
         // startUserInteractionLoop(api);
