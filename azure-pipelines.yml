@@ -1,0 +1,48 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    jobs:
+      displayName: Maven Build
+      steps:
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script:
+              echo $(Build.ArtifactStagingDirectory)
+        - task: Maven@3
+            displayName: 'Maven Package'
+            inputs:
+              mavenPomFile: 'pom.xml'
+        - task: CopyFile@2
+            displayName: 'Copy files to artifact staging directory'
+            inputs:
+              SourceFolder: '$(System.DefaultWorkingDirectory)'
+              Contents: '**/target/*.?(war|jar)'
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+        - upload: $(Build.ArtifactStagingDirectory)
+          artifact: drop
+  - stage: Deploy
+    jobs:
+      - deployment: VMDeployment
+        displayName: web
+        timeoutInMinutes: 0
+        environment:
+          name: dev
+          resourceType: VirtualMachine
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: |
+                    echo "Starting deployment script"
+                    sudo java -jar '$(Pipeline.Workspace)/drop/target/

@@ -18,6 +18,8 @@ public class Symbol {
     @Column(name = "name")
     public String name;
 
+    public Symbol() {}
+
     public Symbol(String symbol, String name) {
         this.symbol = symbol;
         this.name = name;

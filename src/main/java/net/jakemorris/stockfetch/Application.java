@@ -7,10 +7,10 @@ import net.jakemorris.stockfetch.exception.InvalidQuoteException;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
 import net.jakemorris.stockfetch.service.QuoteService;
-import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,7 +19,6 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class Application {
-    public static final Logger log = Logger.getLogger(Application.class);
     private static QuoteService quoteService;
 
     public static void main(String[] args) {
@@ -103,7 +102,6 @@ public class Application {
                         } catch (InvalidQuoteException | SQLException | APIConnectionException e) {
                             System.out.println();
                             System.out.println("Warning: " + e.getMessage());
-                            log.error(e);
                         }
                     }
                     break;
@@ -136,14 +134,12 @@ public class Application {
                                 }
                             } catch(NumberFormatException e) {
                                 System.out.println("Not a valid index.");
-                                log.error(e);
                             }
                         }
 
 
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        log.error(e);
                     }
                     break;
                 case "3":
@@ -177,7 +173,6 @@ public class Application {
 
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        log.error(e);
                     }
                     break;
 
