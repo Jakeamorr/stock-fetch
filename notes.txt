@@ -20,4 +20,19 @@ Major Relationships:
         Exchange / Stock
 
     MANY TO MANY
+------------------------------------------
 
+Stock {
+    Quote quote;
+    Chart chart;
+    Exchange exchange;
+    Company company;
+}
+
+PURPOSE:
+
+StockFetch is a pseudo wrapper API for the IEX Cloud API whose main purpose
+is to deliver a more simplified interface.
+
+While the IEX Cloud API offers a multitude of endpoints and information, all we really care about is tracking
+some basic information about a group of stocks that we select.

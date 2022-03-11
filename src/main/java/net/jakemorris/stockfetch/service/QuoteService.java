@@ -3,6 +3,7 @@ package net.jakemorris.stockfetch.service;
 import lombok.RequiredArgsConstructor;
 import net.jakemorris.stockfetch.dao.QuoteDao;
 import net.jakemorris.stockfetch.model.Quote;
+import net.jakemorris.stockfetch.model.QuoteAggregate;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -22,16 +23,22 @@ public class QuoteService {
     }
 
     public void addQuote(Quote q) throws SQLException {
-        // If a quote already exists in our list, remove it and add the most up-to-date information
-        Quote existingQuote = getQuote(q.getSymbol());
-        if (existingQuote != null) {
-            removeQuote(q.getSymbol());
-        }
-
         quoteDao.addQuote(q);
     }
 
     public void removeQuote(String symbol) throws SQLException {
         quoteDao.removeQuote(symbol);
+    }
+
+    public void generateSampleQuotes() {
+        quoteDao.generateSampleQuotes();
+    }
+
+    public List<QuoteAggregate> getQuotesByMarketCap() {
+        return quoteDao.getQuotesByMarketCap();
+    }
+
+    public void dropTables() {
+        quoteDao.dropTables();
     }
 }

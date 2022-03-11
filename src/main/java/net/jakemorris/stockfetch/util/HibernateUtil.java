@@ -1,5 +1,6 @@
 package net.jakemorris.stockfetch.util;
 
+import net.jakemorris.stockfetch.model.Exchange;
 import net.jakemorris.stockfetch.model.Quote;
 import net.jakemorris.stockfetch.model.Symbol;
 import org.hibernate.Session;
@@ -18,6 +19,7 @@ public class HibernateUtil {
             MetadataSources sources = new MetadataSources(standardRegistry);
             sources.addAnnotatedClass(Quote.class);
             sources.addAnnotatedClass(Symbol.class);
+            sources.addAnnotatedClass(Exchange.class);
             Metadata metadata = sources.buildMetadata();
 
             sf = metadata.buildSessionFactory();

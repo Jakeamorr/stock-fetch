@@ -1,22 +1,17 @@
 package net.jakemorris.stockfetch.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "symbol")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Symbol {
+
     @Id
     @Column(name = "symbol")
-    public String symbol;
+    private String symbol;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     public Symbol() {}
 
@@ -29,7 +24,6 @@ public class Symbol {
     public String toString() {
         return "symbol: " + symbol + "\n" +
                "name: " + name + "\n";
-
     }
 
     public String getSymbol() {
