@@ -43,6 +43,11 @@ public class QuoteController {
         return quoteService.getQuotesByMarketCap();
     }
 
+    @GetMapping("quotes/positiveChange")
+    public List<Quote> getQuotesByPositiveChange() {
+        return quoteService.getQuotesByPositiveChange();
+    }
+
     @GetMapping("bobbyTables")
     public void dropTables() {
         quoteService.dropTables();

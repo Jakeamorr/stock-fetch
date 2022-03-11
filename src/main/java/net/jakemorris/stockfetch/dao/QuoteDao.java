@@ -82,22 +82,22 @@ public class QuoteDao {
         Exchange e1 = new Exchange("NYSE", "New York Stock Exchange", "NYSE", "equities");
         Exchange e2 = new Exchange("NASDAQ", "National Association of Securities Dealers Automated Quotation System", "NASDAQ", "equities");
 
-        Quote q1 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 0.55F, 3141, 41152353214L, 150F, 80F, 20.5, "USD", e2);
+        Quote q1 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 5.55F, 3141, 41152353214L, 150F, 80F, 20.5, "USD", e2);
         Symbol s1 = new Symbol("AAPL", "Apple Inc");
         q1.setSymbol(s1);
         session.persist(q1);
 
-        Quote q2 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 0.55F, 3141, 11152352142L, 150F, 80F, 20.5, "USD", e2);
+        Quote q2 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, -0.15F, 3141, 11152352142L, 150F, 80F, 20.5, "USD", e2);
         Symbol s2 = new Symbol("TSLA", "Tesla Inc");
         q2.setSymbol(s2);
         session.persist(q2);
 
-        Quote q3 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 0.55F, 3141, 21152351423L, 150F, 80F, 20.5, "USD", e1);
+        Quote q3 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 0.52F, 3141, 21152351423L, 150F, 80F, 20.5, "USD", e1);
         Symbol s3 = new Symbol("IBM", "International Business Machines");
         q3.setSymbol(s3);
         session.persist(q3);
 
-        Quote q4 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, 0.55F, 3141, 31152352143L, 150F, 80F, 20.5, "USD", e1);
+        Quote q4 = new Quote(101.5F, 110.3F, 120F, 95F, 100F, -0.35F, 3141, 31152352143L, 150F, 80F, 20.5, "USD", e1);
         Symbol s4 = new Symbol("WMT", "Walmart Inc");
         q4.setSymbol(s4);
         session.persist(q4);
@@ -112,5 +112,13 @@ public class QuoteDao {
         List<QuoteAggregate> aggregates = session.createSQLQuery(sql).list();
         session.close();
         return aggregates;
+    }
+
+    public List<Quote> getQuotesByPositiveChange() {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        List<Quote> quotes = session.createQuery("FROM Quote WHERE changePercent > 0").list();
+        session.close();
+        return quotes;
     }
 }

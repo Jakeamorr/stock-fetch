@@ -38,6 +38,8 @@ public class QuoteService {
         return quoteDao.getQuotesByMarketCap();
     }
 
+public List<Quote> getQuotesByPositiveChange() { return quoteDao.getQuotesByPositiveChange(); }
+
     public void dropTables() {
         quoteDao.dropTables();
     }
