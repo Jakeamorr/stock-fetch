@@ -27,11 +27,15 @@ To-do list:
 To get up and running with Stock Fetch locally you will need a JDK of at least version 8 or higher and you will also need Maven installed.
 
 - clone the repo
-   > git clone git@github.com:Jakeamorr/stock-fetch.git
+   ```console
+   git clone git@github.com:Jakeamorr/stock-fetch.git
+   ```
 - move to the project directory and install Maven dependencies and start the application
-   > cd stock-fetch
-   > mvn install
-   > mvn spring-boot:run
+   ```console
+   $ cd stock-fetch
+   $ mvn install
+   $ mvn spring-boot:run
+   ```
 
 ## Usage
 
