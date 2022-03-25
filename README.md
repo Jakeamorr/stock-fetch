@@ -28,7 +28,7 @@ To get up and running with Stock Fetch locally you will need a JDK of at least v
 
 - clone the repo
    ```console
-   git clone git@github.com:Jakeamorr/stock-fetch.git
+   $ git clone git@github.com:Jakeamorr/stock-fetch.git
    ```
 - move to the project directory and install Maven dependencies and start the application
    ```console
