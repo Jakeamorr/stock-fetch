@@ -1,4 +1,4 @@
-# stock-fetch
+# Stock Fetch
 
 ## Project Description
 
@@ -14,7 +14,7 @@ Stock Fetch is a API wrapper for the IEX Cloud API. The IEX Cloud API offers a s
 
 List of features ready and TODOs for future development
 * Ability to query specific symbol (e.g. AAPL)
-> http://localhost:8080/StockFetch/quote/AAPL
+   > http://localhost:8080/StockFetch/quote/AAPL
 * Example of custom aggregate query
 > http://localhost:8080/StockFetch/quotes/marketCap
 
@@ -41,4 +41,3 @@ Now we can access the available endpoints via a browser or your favorite tool fo
 ## License
 
 This project uses the following license: [MIT License](<https://opensource.org/licenses/MIT>).
-
