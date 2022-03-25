@@ -16,7 +16,7 @@ List of features ready and TODOs for future development
 * Ability to query specific symbol (e.g. AAPL)
    > http://localhost:8080/StockFetch/quote/AAPL
 * Example of custom aggregate query
-> http://localhost:8080/StockFetch/quotes/marketCap
+   > http://localhost:8080/StockFetch/quotes/marketCap
 
 To-do list:
 * Expand upon the available list of custom aggregate queries
@@ -27,11 +27,11 @@ To-do list:
 To get up and running with Stock Fetch locally you will need a JDK of at least version 8 or higher and you will also need Maven installed.
 
 - clone the repo
-> git clone git@github.com:Jakeamorr/stock-fetch.git
+   > git clone git@github.com:Jakeamorr/stock-fetch.git
 - move to the project directory and install Maven dependencies and start the application
-> cd stock-fetch
-> mvn install
-> mvn spring-boot:run
+   > cd stock-fetch
+   > mvn install
+   > mvn spring-boot:run
 
 ## Usage
 
