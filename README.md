@@ -45,11 +45,17 @@ To get up and running with Stock Fetch locally you will need a JDK of at least v
 
 Now we can access the available endpoints via a browser or your favorite tool for working with apis.
 > http://localhost:8080/StockFetch/quote/AAPL
+
 A list of currently available endpoints
+
 > /exchanges
+> 
 > /quotes
+> 
 > /quote/{symbol}
+> 
 > /quotes/marketCap
+> 
 > /quotes/positiveChange
 
 ## License
