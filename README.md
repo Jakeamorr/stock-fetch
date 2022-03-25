@@ -6,7 +6,11 @@ Stock Fetch is a API wrapper for the IEX Cloud API. The IEX Cloud API offers a s
 ## Technologies Used
 
 * Java - version 8.0
+* Maven - version 4.0.0
 * Spring Boot - version 2.6.4
+* Spring Boot AOP - version 2.6.4
+* Spring Boot Web - version 2.6.4
+* Spring Boot Test - version 2.6.4
 * Lombok - version 1.8.22
 * Jackson - version 2.13.1
 
