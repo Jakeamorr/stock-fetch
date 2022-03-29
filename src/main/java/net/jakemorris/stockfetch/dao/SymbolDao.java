@@ -6,9 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
+@Transactional
 public class SymbolDao {
 
     public void addSymbols(List<Symbol> list) {

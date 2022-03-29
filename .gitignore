@@ -1,4 +1,4 @@
 **/target
-*.properties
+sql.properties
 *.idea
 *.cfg.xml
