@@ -18,7 +18,7 @@ public class ApplicationConfig {
     @Autowired
     private Environment env;
 
-    @Value("classpath:sql.properties")
+    @Value("classpath:application.properties")
     private Resource sqlResource;
 
     @Bean
